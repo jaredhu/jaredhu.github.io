@@ -1,0 +1,1117 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Top命令详解 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="RepTaskBasic.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch0/preface.html">
+            
+                <a href="../ch0/preface.html">
+            
+                    
+                    开发环境准备：IDEA常用的插件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch0/RepSearchPractice.html">
+            
+                <a href="../ch0/RepSearchPractice.html">
+            
+                    
+                    Alibaba Java Coding Guidelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch0/RepTaskBasic.html">
+            
+                <a href="../ch0/RepTaskBasic.html">
+            
+                    
+                    SonarLint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch0/RepTaskAdvanced.html">
+            
+                <a href="../ch0/RepTaskAdvanced.html">
+            
+                    
+                    ESLint 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch0/handbook.html">
+            
+                <a href="../ch0/handbook.html">
+            
+                    
+                    Git Commit Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch0/PlantUML.html">
+            
+                <a href="../ch0/PlantUML.html">
+            
+                    
+                    PlantUML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch0/DIagram.html">
+            
+                <a href="../ch0/DIagram.html">
+            
+                    
+                    Diagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ch1/">
+            
+                <a href="../ch1/">
+            
+                    
+                    Spring Cloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ch0/RepSearchPractice.html">
+            
+                <a href="../ch0/RepSearchPractice.html">
+            
+                    
+                    检索实操
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ch1/RepTaskBasic.html">
+            
+                <a href="../ch1/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ch1/RepTaskAdvanced.html">
+            
+                <a href="../ch1/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ch1/handbook.html">
+            
+                <a href="../ch1/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第二讲：快速获取专业领域关键信息
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="top.html">
+            
+                <a href="top.html">
+            
+                    
+                    Top命令详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="RepTaskBasic.html">
+            
+                <a href="RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="RepTaskAdvanced.html">
+            
+                <a href="RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="handbook.html">
+            
+                <a href="handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch3/">
+            
+                <a href="../ch3/">
+            
+                    
+                    第三讲：改变世界经济格局的财团
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch0/RepSearchPractice.html">
+            
+                <a href="../ch0/RepSearchPractice.html">
+            
+                    
+                    检索实操
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch3/RepTaskBasic.html">
+            
+                <a href="../ch3/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch3/RepTaskAdvanced.html">
+            
+                <a href="../ch3/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch3/handbook.html">
+            
+                <a href="../ch3/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch4/">
+            
+                <a href="../ch4/">
+            
+                    
+                    第四讲：获取公司信息、预测前景
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch0/RepSearchPractice.html">
+            
+                <a href="../ch0/RepSearchPractice.html">
+            
+                    
+                    检索实操
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch4/RepTaskBasic.html">
+            
+                <a href="../ch4/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch4/RepTaskAdvanced.html">
+            
+                <a href="../ch4/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch4/handbook.html">
+            
+                <a href="../ch4/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch5/">
+            
+                <a href="../ch5/">
+            
+                    
+                    第五讲：获取职业信息、预测前景
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch0/RepSearchPractice.html">
+            
+                <a href="../ch0/RepSearchPractice.html">
+            
+                    
+                    检索实操
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch5/RepTaskBasic.html">
+            
+                <a href="../ch5/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch5/RepTaskAdvanced.html">
+            
+                <a href="../ch5/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch5/handbook.html">
+            
+                <a href="../ch5/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../ch6/">
+            
+                <a href="../ch6/">
+            
+                    
+                    第六讲：人际关系与反信息分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ch0/RepSearchPractice.html">
+            
+                <a href="../ch0/RepSearchPractice.html">
+            
+                    
+                    检索实操
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ch6/RepTaskBasic.html">
+            
+                <a href="../ch6/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../ch6/RepTaskAdvanced.html">
+            
+                <a href="../ch6/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../ch6/handbook.html">
+            
+                <a href="../ch6/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../ch8/">
+            
+                <a href="../ch8/">
+            
+                    
+                    结业大作业
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../ch8/handbook.html">
+            
+                <a href="../ch8/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../ps/handbooks.html">
+            
+                <a href="../ps/handbooks.html">
+            
+                    
+                    备注
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../ps/ref.html">
+            
+                <a href="../ps/ref.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../ps/thanks.html">
+            
+                <a href="../ps/thanks.html">
+            
+                    
+                    致谢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../no_end/postscript.html">
+            
+                <a href="../no_end/postscript.html">
+            
+                    
+                    后记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Top命令详解</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="top&#x547D;&#x4EE4;&#x8BE6;&#x89E3;">top&#x547D;&#x4EE4;&#x8BE6;&#x89E3;</h1>
+<h5 id="1---&#x53C2;&#x6570;&#x8BE6;&#x89E3;">1.   &#x53C2;&#x6570;&#x8BE6;&#x89E3;</h5>
+<p><img src="F:\git-me\notes\ch2\top.png" alt=""></p>
+<p>1&#x3001;&#x53C2;&#x6570;&#x8BE6;&#x89E3;
+$ top -help
+  procps-ng version 3.3.9
+Usage:
+  top -hv | -bcHiOSs -d secs -n max -u|U user -p pid(s) -o field -w [cols]
+1
+2
+3
+4
+-b&#xFF1A;&#x6253;&#x5370;&#x6240;&#x6709;&#x7A0B;&#x5E8F;
+-c&#xFF1A;&#x4EE5;&#x547D;&#x4EE4;&#x884C;&#x7684;&#x5F62;&#x5F0F;&#x663E;&#x793A;&#x7A0B;&#x5E8F;&#x540D;
+-d&#xFF1A;&#x8BBE;&#x7F6E;&#x5237;&#x65B0;&#x95F4;&#x9694;&#x65F6;&#x95F4;
+-h&#xFF1A;&#x663E;&#x793A;&#x5E2E;&#x52A9;
+-H&#xFF1A;&#x7EBF;&#x7A0B;&#x5207;&#x6362;
+-i&#xFF1A;&#x4E0D;&#x663E;&#x793A;&#x7A7A;&#x95F2;&#x8FDB;&#x7A0B;
+-n&#xFF1A;&#x8BBE;&#x7F6E;&#x5237;&#x65B0;&#x5E27;&#x6570;&#xFF0C;&#x5237;&#x65B0;n&#x5E27;&#x540E;&#x9000;&#x51FA;
+-p&#xFF1A;&#x6307;&#x5B9A;&#x8FDB;&#x7A0B;&#x53F7;PID&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#xFF0C;&#x6700;&#x591A;20&#x4E2A;&#xFF0C;-pN1 -pN2 &#x2026;&#x6216;-pN1&#xFF0C;N2 [&#xFF0C;&#x2026;]
+-s&#xFF1A;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#xFF0C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x4EA4;&#x4E92;&#x547D;&#x4EE4;
+-u&#xFF1A;&#x76D1;&#x63A7;&#x7528;&#x6237;&#xFF0C;&#x5339;&#x914D;&#x6709;&#x6548;ID&#x6216;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x5982;&#x76D1;&#x63A7;root&#x7528;&#x6237;&#xFF0C;top -uroot&#xFF1B;
+-U&#xFF1A;&#x76D1;&#x63A7;&#x7528;&#x6237;&#xFF0C;&#x5339;&#x914D;&#x771F;&#x5B9E;&#x3001;&#x6709;&#x6548;&#x3001;&#x4FDD;&#x5B58;&#x3001;&#x6587;&#x4EF6;&#x6240;&#x5C5E;ID&#x6216;&#x7528;&#x6237;&#x540D;
+-v&#xFF1A;&#x6253;&#x5370;&#x7248;&#x672C;&#x53F7;</p>
+<p>2&#x3001;&#x4EA4;&#x4E92;&#x547D;&#x4EE4;
+&#x5E38;&#x7528;&#x547D;&#x4EE4;&#x8BF4;&#x660E;&#xFF1A;
+Enter&#xFF1A;&#x6309;&#x56DE;&#x8F66;&#x4F1A;&#x5237;&#x65B0;&#x5C4F;&#x5E55;&#xFF1B;
+h&#xFF1A;&#x663E;&#x793A;&#x4EA4;&#x4E92;&#x547D;&#x4EE4;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;</p>
+<p>&#x4EA4;&#x4E92;&#x5F0F;&#x547D;&#x4EE4;&#x7684;&#x5E2E;&#x52A9;
+Help for Interactive Commands - procps-ng version 3.3.9
+&#x7A97;&#x53E3;1:Def:&#x7D2F;&#x8BA1;&#x6A21;&#x5F0F;&#x5173;&#x95ED;&#x3002;&#x7CFB;&#x7EDF;:&#x5EF6;&#x8FDF;3.0&#x79D2;;&#x5B89;&#x5168;&#x6A21;&#x5F0F;&#x3002;
+Window 1:Def: Cumulative mode Off.  System: Delay 3.0 secs; Secure mode Off.</p>
+<p>  Z,B,E,e   Global: &apos;Z&apos; colors; &apos;B&apos; bold; &apos;E&apos;/&apos;e&apos; summary/task memory scale
+  l,t,m     Toggle Summary: &apos;l&apos; load avg; &apos;t&apos; task/cpu stats; &apos;m&apos; memory info
+  0,1,2,3,I Toggle: &apos;0&apos; zeros; &apos;1/2/3&apos; cpus or numa node views; &apos;I&apos; Irix mode
+  f,F,X     Fields: &apos;f&apos;/&apos;F&apos; add/remove/order/sort; &apos;X&apos; increase fixed-width</p>
+<p>  L,&amp;,&lt;,&gt; . Locate: &apos;L&apos;/&apos;&amp;&apos; find/again; Move sort column: &apos;&lt;&apos;/&apos;&gt;&apos; left/right
+  R,H,V,J . Toggle: &apos;R&apos; Sort; &apos;H&apos; Threads; &apos;V&apos; Forest view; &apos;J&apos; Num justify
+  c,i,S,j . Toggle: &apos;c&apos; Cmd name/line; &apos;i&apos; Idle; &apos;S&apos; Time; &apos;j&apos; Str justify
+  x,y     . Toggle highlights: &apos;x&apos; sort field; &apos;y&apos; running tasks
+  z,b     . Toggle: &apos;z&apos; color/mono; &apos;b&apos; bold/reverse (only if &apos;x&apos; or &apos;y&apos;)
+  u,U,o,O . Filter by: &apos;u&apos;/&apos;U&apos; effective/any user; &apos;o&apos;/&apos;O&apos; other criteria
+  n,#,^O  . Set: &apos;n&apos;/&apos;#&apos; max tasks displayed; Show: Ctrl+&apos;O&apos; other filter(s)
+  C,...   . Toggle scroll coordinates msg for: up,down,left,right,home,end</p>
+<p>  k,r       Manipulate tasks: &apos;k&apos; kill; &apos;r&apos; renice
+  d or s    Set update interval
+  W,Y       Write configuration file &apos;W&apos;; Inspect other output &apos;Y&apos;
+  q         Quit
+          ( commands shown with &apos;.&apos; require a visible task display window ) 
+Press &apos;h&apos; or &apos;?&apos; for help with Windows,
+Type &apos;q&apos; or <esc> to continue 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+Z&#xFF1A;&#x8BBE;&#x7F6E;&#x989C;&#x8272;&#xFF0C;&#x8FDB;&#x5165;&#x8BBE;&#x7F6E;&#x989C;&#x8272;&#x7A97;&#x53E3;&#x540E;&#xFF0C;a&#x548C;w&#x7528;&#x6765;&#x5207;&#x6362;&#x989C;&#x8272;&#x8BBE;&#x7F6E;&#xFF0C;Enter&#x63D0;&#x51FA;</esc></p>
+<p>Help for color mapping - procps-ng version 3.3.9
+current window: 1:Def</p>
+<p>   color - 04:25:44 up 8 days, 50 min,  7 users,  load average:
+   Tasks:  64 total,   2 running,  62 sleeping,   0 stopped,
+   %Cpu(s):  76.5 user,  11.2 system,   0.0 nice,  12.3 idle
+    Nasty Message!   -or-  Input Prompt
+     PID TTY     PR  NI %CPU    TIME+   VIRT SWAP S COMMAND<br>   17284 pts/2    8   0  0.0   0:00.75  1380    0 S /bin/bash<br>    8601 pts/1    7 -10  0.4   0:00.03   916    0 R color -b -z
+   11005 ?        9   0  0.0   0:02.50  2852 1008 S amor -sessi
+   available toggles: B =disable bold globally (Off),
+       z =color/mono (On), b =tasks &quot;bold&quot;/reverse (On)</p>
+<p>1) Select a target as an upper case letter, current target is  T :
+   S = Summary Data,  M = Messages/Prompts,
+   H = Column Heads,  T = Task Information
+2) Select a color as a number, current color is  1 :
+   0 = black,  1 = red,      2 = green,  3 = yellow,
+   4 = blue,   5 = magenta,  6 = cyan,   7 = white</p>
+<p>3) Then use these keys when finished:
+   &apos;q&apos; to abort changes to window &apos;1:Def&apos;
+   &apos;a&apos; or &apos;w&apos; to commit &amp; change another, <enter> to commit and end
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+E&#x3001;e&#xFF1A;&#x5206;&#x522B;&#x5207;&#x6362;&#x6458;&#x8981;&#x548C;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x4E2D;&#x5185;&#x5B58;&#x7684;&#x7684;&#x5355;&#x4F4D;&#xFF08;KiB&#x3001;MiB&#x3001;GiB&#x3001;TiB&#x3001;PiB&#x3001;EiB&#xFF09;&#xFF1B;
+l&#xFF1A;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x6458;&#x8981;&#x4E2D;&#x7684;&#x5E73;&#x5747;&#x8D1F;&#x8F7D;&#xFF1B;
+t&#xFF1A;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x6458;&#x8981;&#x4E2D;&#x7684;cpu&#x7EDF;&#x8BA1;&#x6570;&#x636E;
+m&#xFF1A;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x6458;&#x8981;&#x4E2D;&#x7684;&#x5185;&#x5B58;&#x7EDF;&#x8BA1;&#x6570;&#x636E;
+F&#x3001;f&#xFF1A;&#x7A97;&#x53E3;&#x5B57;&#x6BB5;&#x7BA1;&#x7406;&#xFF0C;&#x4E0A;&#x4E0B;&#x952E;&#x79FB;&#x52A8;&#x3001;&#x65B9;&#x5411;&#x952E;&#x4E2D;&#x53F3;&#x952E;&#x9009;&#x4E2D;&#x540E;&#x53EF;&#x4EE5;&#x79FB;&#x52A8;&#x8BE5;&#x5B57;&#x6BB5;&#xFF08;&#x5DE6;&#x952E;&#x64A4;&#x9500;&#xFF09;&#x3001;&#x7A7A;&#x683C;&#x6216;d&#x9009;&#x62E9;&#x662F;&#x5426;&#x663E;&#x793A;</enter></p>
+<p>Fields Management for window 1:Def, whose current sort field is %CPU
+  Navigate with Up/Dn, Right selects for move then <enter> or Left commits,
+  &apos;d&apos; or <space> toggles display, &apos;s&apos; sets sort.  Use &apos;q&apos; or <esc> to end!</esc></space></enter></p>
+<ul>
+<li>PID     = Process Id             DATA    = Data+Stack (KiB)    </li>
+<li>USER    = Effective User Name    nMaj    = Major Page Faults   </li>
+<li>PR      = Priority               nMin    = Minor Page Faults   </li>
+<li>NI      = Nice Value             nDRT    = Dirty Pages Count   </li>
+<li>VIRT    = Virtual Image (KiB)    WCHAN   = Sleeping in Function</li>
+<li>RES     = Resident Size (KiB)    Flags   = Task Flags <sched.h></sched.h></li>
+<li>SHR     = Shared Memory (KiB)    CGROUPS = Control Groups      </li>
+<li>S       = Process Status         SUPGIDS = Supp Groups IDs     </li>
+<li>%CPU    = CPU Usage              SUPGRPS = Supp Groups Names   </li>
+<li>%MEM    = Memory Usage (RES)     TGID    = Thread Group Id     </li>
+<li>TIME+   = CPU Time, hundredths   ENVIRON = Environment vars    </li>
+<li>COMMAND = Command Name/Line      vMj     = Major Faults delta<br>PPID    = Parent Process pid     vMn     = Minor Faults delta<br>UID     = Effective User Id      USED    = Res+Swap Size (KiB) 
+RUID    = Real User Id           nsIPC   = IPC namespace Inode 
+RUSER   = Real User Name         nsMNT   = MNT namespace Inode 
+SUID    = Saved User Id          nsNET   = NET namespace Inode 
+SUSER   = Saved User Name        nsPID   = PID namespace Inode 
+GID     = Group Id               nsUSER  = USER namespace Inode
+GROUP   = Group Name             nsUTS   = UTS namespace Inode 
+PGRP    = Process Group Id<br>TTY     = Controlling Tty<br>TPGID   = Tty Process Grp Id<br>SID     = Session Id<br>nTH     = Number of Threads<br>P       = Last Used Cpu (SMP) 
+TIME    = CPU Time<br>SWAP    = Swapped Size (KiB)<br>CODE    = Code Size (KiB)<br>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+X&#xFF1A;&#x8BBE;&#x7F6E;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x4E4B;&#x95F4;&#x7684;&#x5BBD;&#x5EA6;
+L&#xFF1A;&#x641C;&#x7D22;&#x5B57;&#x6BB5;&#xFF1B;
+&amp;&#xFF1A;&#x641C;&#x7D22;&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF1B;
+&lt;&#x3001;&gt;&#xFF1A;&#x663E;&#x793A;&#x4E0A;&#x4E00;&#x9875;&#x3001;&#x4E0B;&#x4E00;&#x9875;
+R&#xFF1A;&#x5347;&#x5E8F;&#x6216;&#x964D;&#x5E8F;&#x663E;&#x793A;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#xFF1B;
+H&#xFF1A;&#x8FDB;&#x7A0B;&#x548C;&#x7EBF;&#x7A0B;&#x5207;&#x6362;&#xFF1B;
+V&#xFF1A;&#x6811;&#x5F62;&#x663E;&#x793A;&#xFF0C;&#xFF08;&#x663E;&#x793A;&#x5185;&#x5BB9;&#x6CA1;&#x770B;&#x61C2;&#xFF09;
+J&#xFF1A;&#x5B57;&#x6BB5;&#x5DE6;&#x5BF9;&#x9F50;&#x6216;&#x53F3;&#x5BF9;&#x9F50;&#x5207;&#x6362;&#xFF1B;
+c&#xFF1A;&#x7A0B;&#x5E8F;&#x540D;&#x548C;&#x547D;&#x4EE4;&#x884C;&#x683C;&#x5F0F;&#x5207;&#x6362;&#xFF1B;
+i&#xFF1A;&#x7A7A;&#x95F2;&#x7A0B;&#x5E8F;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x7684;&#x5207;&#x6362;&#xFF1B;
+x&#xFF1A;&#x9AD8;&#x4EAE;&#x663E;&#x793A;&#x6392;&#x5E8F;&#x5B57;&#x6BB5;&#xFF1B;
+y&#xFF1A;&#x9AD8;&#x4EAE;&#x663E;&#x793A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF1B;
+Toggle: &#x2018;z&#x2019; color/mono; &#x2018;b&#x2019; bold/reverse (only if &#x2018;x&#x2019; or &#x2018;y&#x2019;)
+z&#xFF1A;&#x5F69;&#x8272;&#x663E;&#x793A;&#x6216;&#x5355;&#x8272;&#x663E;&#x793A;&#x7684;&#x5207;&#x6362;&#xFF1B;
+b&#xFF1A;&#x5F53;&#x8BBE;&#x7F6E;&#x4E86;x&#x6216;y&#xFF0C;&#x5373;&#x9AD8;&#x4EAE;&#x663E;&#x793A;&#x65F6;&#xFF0C;&#x518D;&#x52A0;&#x4E0A;b&#xFF0C;&#x5C31;&#x4F1A;&#x5C06;&#x9AD8;&#x4EAE;&#x7684;&#x5E26;&#x80CC;&#x666F;&#x8272;&#xFF1B;
+u&#x3001;U&#xFF1A;&#x8FC7;&#x6EE4;&#x6709;&#x6548;&#x6216;&#x4EFB;&#x4F55;&#x7528;&#x6237;&#xFF1B;
+n&#x3001;#&#xFF1A;&#x8BBE;&#x7F6E;&#x6700;&#x591A;&#x663E;&#x793A;&#x7684;&#x4EFB;&#x52A1;&#x6570;&#xFF0C;0&#x8868;&#x793A;&#x4E0D;&#x9650;&#x5236;&#xFF1B;
+C&#xFF1A;&#x663E;&#x793A;&#x5750;&#x6807;&#xFF1B;
+k&#xFF1A;&#x6740;&#x6B7B;&#x6307;&#x5B9A;PID&#x7684;&#x8FDB;&#x7A0B;&#xFF1B;
+r&#xFF1A;&#x8C03;&#x6574;&#x4F18;&#x5148;&#x7EA7;&#xFF1B;
+d&#x3001;s&#xFF1A;&#x8BBE;&#x7F6E;&#x95F4;&#x9694;&#x65F6;&#x95F4;&#xFF1B;
+W&#xFF1A;&#x5199;&#x5165;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1B;
+Y&#xFF1A;&#x5199;&#x5165;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;
+q&#xFF1A;&#x9000;&#x51FA;</li>
+</ul>
+<p>3&#x3001;&#x663E;&#x793A;&#x4FE1;&#x606F;&#x8BE6;&#x89E3;
+top - 15:00:44 up 6 min,  3 users,  load average: 0.21, 0.48, 0.30
+Tasks: 194 total,   1 running, 193 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 12.8 us,  5.1 sy,  0.0 ni, 82.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem:   4046976 total,  1182232 used,  2864744 free,    59872 buffers
+KiB Swap:  4191228 total,        0 used,  4191228 free.   462400 cached Mem</p>
+<p>  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND<br> 2308 zet       20   0 1271772 186756  67412 S  7.6  4.6   0:29.29 compiz<br> 1300 root      20   0  373560 108052  31176 S  4.3  2.7   0:08.53 Xorg<br> 2738 zet       20   0  599960  34704  26408 S  4.3  0.9   0:01.74 gnome-terminal<br> 1937 zet       20   0  121840   3208   2836 S  0.7  0.1   0:00.96 VBoxClient<br>   97 root      20   0       0      0      0 S  0.3  0.0   0:00.16 kworker/u2:4<br> 1960 zet       20   0   40196   3512   2164 S  0.3  0.1   0:00.67 dbus-daemon<br> 2835 zet       20   0   30604   3448   2912 R  0.3  0.1   0:00.05 top<br>    1 root      20   0   33792   4312   2684 S  0.0  0.1   0:01.78 init<br>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+&#x7B2C;&#x4E00;&#x884C;&#xFF1A;top - 15:00:44 up 6 min, 3 users, load average: 0.21, 0.48, 0.30
+15:00:44 &#x2014; &#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;
+up 6 min &#x2014; &#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#xFF08;&#x5728;&#x8FD9;&#x671F;&#x95F4;&#x6CA1;&#x6709;&#x91CD;&#x542F;&#x8FC7;&#xFF09;
+3 users    &#x2014; &#x5F53;&#x524D;&#x6709;3&#x4E2A;&#x7528;&#x6237;&#x767B;&#x5F55;&#x7CFB;&#x7EDF;, load average: 0.21, 0.48, 0.30
+load average: 0.21, 0.48, 0.30 &#x2014; load average&#x540E;&#x9762;&#x7684;&#x4E09;&#x4E2A;&#x6570;&#x5206;&#x522B;&#x662F;5&#x5206;&#x949F;&#x3001;10&#x5206;&#x949F;&#x3001;15&#x5206;&#x949F;&#x7684;&#x8D1F;&#x8F7D;&#x60C5;&#x51B5;&#x3002;
+load average&#x6570;&#x636E;&#x662F;&#x6BCF;&#x9694;5&#x79D2;&#x949F;&#x68C0;&#x67E5;&#x4E00;&#x6B21;&#x6D3B;&#x8DC3;&#x7684;&#x8FDB;&#x7A0B;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x7279;&#x5B9A;&#x7B97;&#x6CD5;&#x8BA1;&#x7B97;&#x51FA;&#x7684;&#x6570;&#x503C;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6570;&#x9664;&#x4EE5;&#x903B;&#x8F91;CPU&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x7ED3;&#x679C;&#x9AD8;&#x4E8E;5&#x7684;&#x65F6;&#x5019;&#x5C31;&#x8868;&#x660E;&#x7CFB;&#x7EDF;&#x5728;&#x8D85;&#x8D1F;&#x8377;&#x8FD0;&#x8F6C;&#x4E86;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x884C;&#xFF1A;Tasks: 194 total, 1 running, 193 sleeping, 0 stopped, 0 zombie
+Tasks &#x2014; &#x4EFB;&#x52A1;&#xFF08;&#x8FDB;&#x7A0B;&#xFF09;&#xFF0C;&#x7CFB;&#x7EDF;&#x73B0;&#x5728;&#x5171;&#x6709;194 &#x4E2A;&#x8FDB;&#x7A0B;&#xFF0C;&#x5176;&#x4E2D;&#x5904;&#x4E8E;&#x8FD0;&#x884C;&#x4E2D;&#x7684;&#x6709;1&#x4E2A;&#xFF0C;193 &#x4E2A;&#x5728;&#x4F11;&#x7720;&#xFF08;sleep&#xFF09;&#xFF0C;stoped&#x72B6;&#x6001;&#x7684;&#x6709;0&#x4E2A;&#xFF0C;zombie&#x72B6;&#x6001;&#xFF08;&#x50F5;&#x5C38;&#xFF09;&#x7684;&#x6709;0&#x4E2A;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x884C;&#xFF1A;%Cpu(s): 12.8 us, 5.1 sy, 0.0 ni, 82.2 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st</p>
+<p>12.8 us &#x2014; &#x7528;&#x6237;&#x7A7A;&#x95F4;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;&#x3002;
+5.1 sy &#x2014; &#x5185;&#x6838;&#x7A7A;&#x95F4;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;&#x3002;
+0.0 ni &#x2014; &#x6539;&#x53D8;&#x8FC7;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;
+82.2 id id &#x2014; &#x7A7A;&#x95F2;CPU&#x767E;&#x5206;&#x6BD4;
+0.0 wa &#x2014; IO&#x7B49;&#x5F85;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;
+0.0 hi &#x2014; &#x786C;&#x4E2D;&#x65AD;&#xFF08;Hardware IRQ&#xFF09;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;
+0.0 si &#x2014; &#x8F6F;&#x4E2D;&#x65AD;&#xFF08;Software Interrupts&#xFF09;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;
+0.0 st &#x2014;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x8FDB;&#x7A0B;&#x5360;&#x7528;CPU&#x7684;&#x767E;&#x5206;&#x6BD4;</p>
+<p>&#x7B2C;&#x56DB;&#x884C;&#xFF1A;KiB Mem: 4046976 total, 1182232 used, 2864744 free, 59872 buffers
+&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#xFF1A;
+4046976 total &#x2014; &#x7269;&#x7406;&#x5185;&#x5B58;&#x603B;&#x91CF;
+1182232 used &#x2014; &#x4F7F;&#x7528;&#x4E2D;&#x7684;&#x5185;&#x5B58;&#x603B;&#x91CF;
+2864744 free &#x2014; &#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x603B;&#x91CF;
+59872 buffers &#x2014; &#x7F13;&#x5B58;&#x7684;&#x5185;&#x5B58;&#x91CF;</p>
+<p>&#x7B2C;&#x4E94;&#x884C;&#xFF1A;KiB Swap: 4191228 total, 0 used, 4191228 free. 462400 cached Mem
+&#x4EA4;&#x6362;&#x5206;&#x533A;&#xFF1A;
+4191228 total &#x2014; &#x4EA4;&#x6362;&#x533A;&#x603B;&#x91CF;
+0 used &#x2014; &#x4F7F;&#x7528;&#x7684;&#x4EA4;&#x6362;&#x533A;&#x603B;&#x91CF;
+4191228 free &#x2014; &#x7A7A;&#x95F2;&#x4EA4;&#x6362;&#x533A;&#x603B;&#x91CF;
+462400 cached &#x2014; &#x7F13;&#x51B2;&#x7684;&#x4EA4;&#x6362;&#x533A;&#x603B;&#x91CF;</p>
+<p>&#x7B2C;&#x516D;&#x884C;&#xFF1A;PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
+&#x5404;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;&#x76D1;&#x63A7;&#x60C5;&#x51B5;&#xFF1A;
+PID&#x2014; &#x8FDB;&#x7A0B;ID
+USER&#x2014; &#x8FDB;&#x7A0B;&#x6240;&#x6709;&#x8005;&#x7684;&#x5B9E;&#x9645;&#x7528;&#x6237;&#x540D;&#x3002;
+PR&#x2014; &#x8FDB;&#x7A0B;&#x7684;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;&#x3002;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x4E00;&#x4E9B;&#x503C;&#x662F;&#x2019;rt&#x2019;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x8FD9;&#x8FD9;&#x4E9B;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x5728;&#x5B9E;&#x65F6;&#x6001;&#x3002;
+NI&#x2014; &#x8FDB;&#x7A0B;&#x7684;nice&#x503C;&#xFF08;&#x4F18;&#x5148;&#x7EA7;&#xFF09;&#x3002;&#x8D8A;&#x5C0F;&#x7684;&#x503C;&#x610F;&#x5473;&#x7740;&#x8D8A;&#x9AD8;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x3002;&#x8D1F;&#x503C;&#x8868;&#x793A;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x6B63;&#x503C;&#x8868;&#x793A;&#x4F4E;&#x4F18;&#x5148;&#x7EA7;
+VIRT&#x2014; &#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x3002;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x603B;&#x91CF;&#xFF0C;&#x5355;&#x4F4D;kb&#x3002;VIRT=SWAP+RES
+RES&#x2014; &#x9A7B;&#x7559;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x3002;&#x9A7B;&#x7559;&#x5185;&#x5B58;&#x662F;&#x4EFB;&#x52A1;&#x4F7F;&#x7528;&#x7684;&#x975E;&#x4EA4;&#x6362;&#x7269;&#x7406;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x3002;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x3001;&#x672A;&#x88AB;&#x6362;&#x51FA;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#xFF0C;&#x5355;&#x4F4D;kb&#x3002;RES=CODE+DATA
+SHR&#x2014; SHR&#x662F;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x3002;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#xFF0C;&#x5355;&#x4F4D;kb
+S&#x2014; &#x8FD9;&#x4E2A;&#x662F;&#x8FDB;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5B83;&#x6709;&#x4EE5;&#x4E0B;&#x4E0D;&#x540C;&#x7684;&#x503C;:</p>
+<p>D - &#x4E0D;&#x53EF;&#x4E2D;&#x65AD;&#x7684;&#x7761;&#x7720;&#x6001;&#x3002;
+R &#x2013; &#x8FD0;&#x884C;&#x6001;
+S &#x2013; &#x7761;&#x7720;&#x6001;
+T &#x2013; &#x88AB;&#x8DDF;&#x8E2A;&#x6216;&#x5DF2;&#x505C;&#x6B62;
+Z &#x2013; &#x50F5;&#x5C38;&#x6001;
+1
+2
+3
+4
+5
+%CPU&#x2014; &#x81EA;&#x4ECE;&#x4E0A;&#x4E00;&#x6B21;&#x66F4;&#x65B0;&#x65F6;&#x5230;&#x73B0;&#x5728;&#x4EFB;&#x52A1;&#x6240;&#x4F7F;&#x7528;&#x7684;CPU&#x65F6;&#x95F4;&#x767E;&#x5206;&#x6BD4;&#x3002;
+%MEM&#x2014; &#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7684;&#x53EF;&#x7528;&#x7269;&#x7406;&#x5185;&#x5B58;&#x767E;&#x5206;&#x6BD4;&#x3002;
+TIME+&#x2014; &#x4EFB;&#x52A1;&#x542F;&#x52A8;&#x540E;&#x5230;&#x73B0;&#x5728;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x5168;&#x90E8;CPU&#x65F6;&#x95F4;&#xFF0C;&#x7CBE;&#x786E;&#x5230;&#x767E;&#x5206;&#x4E4B;&#x4E00;&#x79D2;&#x3002;
+COMMAND&#x2014; &#x8FD0;&#x884C;&#x8FDB;&#x7A0B;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x3002;&#x8FDB;&#x7A0B;&#x540D;&#x79F0;&#xFF08;&#x547D;&#x4EE4;&#x540D;/&#x547D;&#x4EE4;&#x884C;&#xFF09;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 第二讲：快速获取专业领域关键信息">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="RepTaskBasic.html" class="navigation navigation-next " aria-label="Next page: 基础任务">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Top命令详解","level":"1.4.1","depth":2,"next":{"title":"基础任务","level":"1.4.2","depth":2,"path":"ch2/RepTaskBasic.md","ref":"ch2/RepTaskBasic.md","articles":[]},"previous":{"title":"第二讲：快速获取专业领域关键信息","level":"1.4","depth":1,"path":"ch2/README.md","ref":"ch2/README.md","articles":[{"title":"Top命令详解","level":"1.4.1","depth":2,"path":"ch2/top.md","ref":"ch2/top.md","articles":[]},{"title":"基础任务","level":"1.4.2","depth":2,"path":"ch2/RepTaskBasic.md","ref":"ch2/RepTaskBasic.md","articles":[]},{"title":"进阶任务","level":"1.4.3","depth":2,"path":"ch2/RepTaskAdvanced.md","ref":"ch2/RepTaskAdvanced.md","articles":[]},{"title":"个人教程","level":"1.4.4","depth":2,"path":"ch2/handbook.md","ref":"ch2/handbook.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch2/top.md","mtime":"2019-07-23T01:31:01.517Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-27T13:52:14.123Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
