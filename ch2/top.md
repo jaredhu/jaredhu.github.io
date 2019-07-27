@@ -2,7 +2,7 @@
 
 ##### 1.   参数详解
 
-![](F:\git-me\notes\ch2\top.png)
+![](image\top.png)
 
 1、参数详解
 $ top -help
