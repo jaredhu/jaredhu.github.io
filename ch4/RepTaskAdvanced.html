@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>进阶任务 · GitBook</title>
+        <title>Spring Security Oauth2（二） · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -417,7 +417,7 @@
                 <a href="./">
             
                     
-                    第四讲：获取公司信息、预测前景
+                    Spring Security Oauth2
             
                 </a>
             
@@ -426,12 +426,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="../ch0/RepSearchPractice.html">
+        <li class="chapter " data-level="1.6.1" data-path="oauth2.html">
             
-                <a href="../ch0/RepSearchPractice.html">
+                <a href="oauth2.html">
             
                     
-                    检索实操
+                    理解OAuth 2.0
             
                 </a>
             
@@ -444,7 +444,7 @@
                 <a href="RepTaskBasic.html">
             
                     
-                    基础任务
+                    Spring Security Oauth2（一）
             
                 </a>
             
@@ -457,7 +457,7 @@
                 <a href="RepTaskAdvanced.html">
             
                     
-                    进阶任务
+                    Spring Security Oauth2（二）
             
                 </a>
             
@@ -470,7 +470,7 @@
                 <a href="handbook.html">
             
                     
-                    个人教程
+                    Spring Security Oauth2（三）
             
                 </a>
             
@@ -630,7 +630,7 @@
                 <a href="../ch8/">
             
                     
-                    结业大作业
+                    辅助
             
                 </a>
             
@@ -639,12 +639,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../ch8/handbook.html">
+        <li class="chapter " data-level="1.9.1" data-path="../ch8/gitbook.html">
             
-                <a href="../ch8/handbook.html">
+                <a href="../ch8/gitbook.html">
             
                     
-                    个人教程
+                    gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../ch8/github.html">
+            
+                <a href="../ch8/github.html">
+            
+                    
+                    github
             
                 </a>
             
@@ -739,7 +752,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >进阶任务</a>
+        <a href=".." >Spring Security Oauth2（二）</a>
     </h1>
 </div>
 
@@ -754,7 +767,312 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x8FDB;&#x9636;&#x4EFB;&#x52A1;">&#x8FDB;&#x9636;&#x4EFB;&#x52A1;</h1>
+                                <h1 id="spring-security-oauth2&#xFF08;&#x4E8C;&#xFF09;">Spring Security Oauth2&#xFF08;&#x4E8C;&#xFF09;</h1>
+<blockquote>
+<p>&#x539F;&#x6587;&#x51FA;&#x5904;&#xFF1A;<a href="https://blog.csdn.net/u013815546/article/details/76977239" target="_blank">https://blog.csdn.net/u013815546/article/details/76977239</a></p>
+<p>&#x4F5C;&#x8005;&#xFF1A;&#x4E0B;&#x4E00;&#x79D2;&#x5347;&#x534E; </p>
+</blockquote>
+<p>&#x672C;&#x6587;&#x5F00;&#x59CB;&#x4ECE;&#x6E90;&#x7801;&#x7684;&#x5C42;&#x9762;&#xFF0C;&#x8BB2;&#x89E3;&#x4E00;&#x4E9B;Spring Security Oauth2&#x7684;&#x8BA4;&#x8BC1;&#x6D41;&#x7A0B;&#x3002;&#x672C;&#x6587;&#x8F83;&#x957F;&#xFF0C;&#x9002;&#x5408;&#x5728;&#x7A7A;&#x4F59;&#x65F6;&#x95F4;&#x6BB5;&#x89C2;&#x770B;&#x3002;&#x4E14;&#x6D89;&#x53CA;&#x4E86;&#x8F83;&#x591A;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x975E;&#x5173;&#x952E;&#x6027;&#x4EE3;&#x7801;&#x4EE5;&#x2026;&#x4EE3;&#x66FF;&#x3002;</p>
+<h2 id="&#x51C6;&#x5907;&#x5DE5;&#x4F5C;">&#x51C6;&#x5907;&#x5DE5;&#x4F5C;</h2>
+<p>&#x9996;&#x5148;&#x5F00;&#x542F;debug&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code>logging:
+  level:
+    org.springframework: DEBUG
+</code></pre><p>&#x53EF;&#x4EE5;&#x5B8C;&#x6574;&#x7684;&#x770B;&#x5230;&#x5185;&#x90E8;&#x7684;&#x8FD0;&#x8F6C;&#x6D41;&#x7A0B;&#x3002;</p>
+<p>client&#x6A21;&#x5F0F;&#x7A0D;&#x5FAE;&#x7B80;&#x5355;&#x4E00;&#x4E9B;&#xFF0C;&#x4F7F;&#x7528;client&#x6A21;&#x5F0F;&#x83B7;&#x53D6;token 
+<a href="http://localhost:8080/oauth/token?client_id=client_1&amp;client_secret=123456&amp;scope=select&amp;grant_type=client_credentials" target="_blank">http://localhost:8080/oauth/token?client_id=client_1&amp;client_secret=123456&amp;scope=select&amp;grant_type=client_credentials</a></p>
+<p>&#x7531;&#x4E8E;debug&#x4FE1;&#x606F;&#x592A;&#x591A;&#x4E86;&#xFF0C;&#x6211;&#x7B80;&#x5355;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x5217;&#x4E86;&#x4E00;&#x4E0B;&#x5173;&#x952E;&#x7684;&#x51E0;&#x4E2A;&#x7C7B;&#xFF1A;</p>
+<pre><code>ClientCredentialsTokenEndpointFilter
+DaoAuthenticationProvider
+TokenEndpoint
+TokenGranter
+</code></pre><h2 id="enableauthorizationserver">@EnableAuthorizationServer</h2>
+<p>&#x4E0A;&#x4E00;&#x7BC7;&#x535A;&#x5BA2;&#x4E2D;&#x6211;&#x4EEC;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x4E86;password&#x6A21;&#x5F0F;&#x548C;client&#x6A21;&#x5F0F;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5173;&#x952E;&#x7684;endpoint&#xFF1A;/oauth/token&#x3002;&#x4ECE;&#x8FD9;&#x4E2A;&#x5165;&#x53E3;&#x5F00;&#x59CB;&#x5206;&#x6790;&#xFF0C;spring security oauth2&#x5185;&#x90E8;&#x662F;&#x5982;&#x4F55;&#x751F;&#x6210;token&#x7684;&#x3002;&#x83B7;&#x53D6;token&#xFF0C;&#x4E0E;&#x7B2C;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x7684;&#x4E24;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;&#x4E4B;&#x4E00;&#x6709;&#x5173;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;AuthorizationServer&#x4E0E;ResourceServer&#x4E2D;&#x7684;AuthorizationServer&#x3002;</p>
+<p>&#x5728;&#x4E4B;&#x524D;&#x7684;&#x914D;&#x7F6E;&#x4E2D;</p>
+<pre><code>@Configuration
+@EnableAuthorizationServer
+protected static class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {}
+</code></pre><p>&#x51FA;&#x73B0;&#x4E86;AuthorizationServerConfigurerAdapter &#x5173;&#x952E;&#x7C7B;&#xFF0C;&#x4ED6;&#x5173;&#x8054;&#x4E86;&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x914D;&#x7F6E;&#x7C7B;&#xFF0C;&#x5206;&#x522B;&#x662F;</p>
+<pre><code>public class AuthorizationServerConfigurerAdapter implements AuthorizationServerConfigurer {
+
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer security &lt;1&gt;) throws Exception {
+    }
+
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients &lt;2&gt;) throws Exception {
+    }
+
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints &lt;3&gt;) throws Exception {
+    }
+
+}
+</code></pre><p><1> &#x914D;&#x7F6E;AuthorizationServer&#x5B89;&#x5168;&#x8BA4;&#x8BC1;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x521B;&#x5EFA;ClientCredentialsTokenEndpointFilter&#x6838;&#x5FC3;&#x8FC7;&#x6EE4;&#x5668;</1></p>
+<p><2> &#x914D;&#x7F6E;OAuth2&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x76F8;&#x5173;&#x4FE1;&#x606F;</2></p>
+<p><3> &#x914D;&#x7F6E;AuthorizationServerEndpointsConfigurer&#x4F17;&#x591A;&#x76F8;&#x5173;&#x7C7B;&#xFF0C;&#x5305;&#x62EC;&#x914D;&#x7F6E;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#x5668;&#xFF0C;&#x914D;&#x7F6E;&#x8BA4;&#x8BC1;&#x65B9;&#x5F0F;&#xFF0C;TokenStore&#xFF0C;TokenGranter&#xFF0C;OAuth2RequestFactory</3></p>
+<p>&#x6211;&#x4EEC;&#x9010;&#x6B65;&#x5206;&#x6790;&#x5176;&#x4E2D;&#x5173;&#x952E;&#x7684;&#x7C7B;</p>
+<h2 id="&#x5BA2;&#x6237;&#x7AEF;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#x6838;&#x5FC3;&#x8FC7;&#x6EE4;&#x5668;clientcredentialstokenendpointfilter&#xFF08;&#x638C;&#x63E1;&#xFF09;">&#x5BA2;&#x6237;&#x7AEF;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#x6838;&#x5FC3;&#x8FC7;&#x6EE4;&#x5668;ClientCredentialsTokenEndpointFilter&#xFF08;&#x638C;&#x63E1;&#xFF09;</h2>
+<p>&#x622A;&#x53D6;&#x5173;&#x952E;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x51FA;&#x5927;&#x6982;&#x7684;&#x6D41;&#x7A0B; 
+&#x5728;&#x8BF7;&#x6C42;&#x5230;&#x8FBE;/oauth/token&#x4E4B;&#x524D;&#x7ECF;&#x8FC7;&#x4E86;ClientCredentialsTokenEndpointFilter&#x8FD9;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x5173;&#x952E;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;</p>
+<pre><code>public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+        throws AuthenticationException, IOException, ServletException {
+    ...
+    String clientId = request.getParameter(&quot;client_id&quot;);
+    String clientSecret = request.getParameter(&quot;client_secret&quot;);
+
+    ...
+    clientId = clientId.trim();
+    UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(clientId,
+            clientSecret);
+
+    return this.getAuthenticationManager().authenticate(authRequest);
+
+}
+</code></pre><h2 id="&#x9876;&#x7EA7;&#x8EAB;&#x4EFD;&#x7BA1;&#x7406;&#x8005;authenticationmanager&#xFF08;&#x638C;&#x63E1;&#xFF09;">&#x9876;&#x7EA7;&#x8EAB;&#x4EFD;&#x7BA1;&#x7406;&#x8005;AuthenticationManager&#xFF08;&#x638C;&#x63E1;&#xFF09;</h2>
+<p>&#x7528;&#x6765;&#x4ECE;&#x8BF7;&#x6C42;&#x4E2D;&#x83B7;&#x53D6;client_id,client_secret&#xFF0C;&#x7EC4;&#x88C5;&#x6210;&#x4E00;&#x4E2A;UsernamePasswordAuthenticationToken&#x4F5C;&#x4E3A;&#x8EAB;&#x4EFD;&#x6807;&#x8BC6;&#xFF0C;&#x4F7F;&#x7528;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x9876;&#x7EA7;&#x8EAB;&#x4EFD;&#x7BA1;&#x7406;&#x5668;AuthenticationManager&#x53BB;&#x8FDB;&#x884C;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#xFF08;AuthenticationManager&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x4E00;&#x822C;&#x662F;ProviderManager&#x3002;&#x800C;ProviderManager&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;List,&#x771F;&#x6B63;&#x7684;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#x662F;&#x7531;&#x4E00;&#x7CFB;&#x5217;AuthenticationProvider&#x53BB;&#x5B8C;&#x6210;&#x3002;&#x800C;AuthenticationProvider&#x7684;&#x5E38;&#x7528;&#x5B9E;&#x73B0;&#x7C7B;&#x5219;&#x662F;DaoAuthenticationProvider&#xFF0C;DaoAuthenticationProvider&#x5185;&#x90E8;&#x53C8;&#x805A;&#x5408;&#x4E86;&#x4E00;&#x4E2A;UserDetailsService&#x63A5;&#x53E3;&#xFF0C;UserDetailsService&#x624D;&#x662F;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x7684;&#x6700;&#x7EC8;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x6211;&#x4EEC;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x914D;&#x7F6E;&#x7528;&#x6237;&#xFF0C;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x4E86;UserDetailsService&#x7684;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x7C7B;InMemoryUserDetailsManager&#xFF09;&#x3002;UML&#x7C7B;&#x56FE;&#x53EF;&#x4EE5;&#x5927;&#x6982;&#x7406;&#x89E3;&#x4E0B;&#x8FD9;&#x4E9B;&#x7C7B;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x7701;&#x7565;&#x4E86;&#x6388;&#x6743;&#x90E8;&#x5206;&#x3002; 
+<img src="image/oauth2-3-1.png" alt="">
+&#x56FE;1 &#x8BA4;&#x8BC1;&#x76F8;&#x5173;UML&#x7C7B;&#x56FE;</p>
+<p>&#x53EF;&#x80FD;&#x673A;&#x667A;&#x7684;&#x8BFB;&#x8005;&#x4F1A;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x524D;&#x9762;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;&#x4E86;client&#x6A21;&#x5F0F;&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x201C;&#x7528;&#x6237;&#x201D;&#x7684;&#x6982;&#x5FF5;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x7684;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#x662F;&#x5728;&#x8BA4;&#x8BC1;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;debug&#x53EF;&#x4EE5;&#x53D1;&#x73B0;UserDetailsService&#x7684;&#x5B9E;&#x73B0;&#x88AB;&#x9002;&#x914D;&#x6210;&#x4E86;ClientDetailsUserDetailsService&#xFF0C;&#x8FD9;&#x4E2A;&#x8BBE;&#x8BA1;&#x662F;&#x5C06;client&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x4FE1;&#x606F;&#xFF08;client_id,client_secret&#xFF09;&#x9002;&#x914D;&#x6210;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;(username,password)&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x7684;&#x8BA4;&#x8BC1;&#x6D41;&#x7A0B;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4E86;&#x3002;
+&#x7ECF;&#x8FC7;ClientCredentialsTokenEndpointFilter&#x4E4B;&#x540E;&#xFF0C;&#x8EAB;&#x4EFD;&#x4FE1;&#x606F;&#x5DF2;&#x7ECF;&#x5F97;&#x5230;&#x4E86;AuthenticationManager&#x7684;&#x9A8C;&#x8BC1;&#x3002;&#x63A5;&#x7740;&#x4FBF;&#x5230;&#x8FBE;&#x4E86; 
+TokenEndpoint&#x3002;</p>
+<h2 id="token&#x5904;&#x7406;&#x7AEF;&#x70B9;tokenendpoint&#xFF08;&#x638C;&#x63E1;&#xFF09;">Token&#x5904;&#x7406;&#x7AEF;&#x70B9;TokenEndpoint&#xFF08;&#x638C;&#x63E1;&#xFF09;</h2>
+<p>&#x524D;&#x9762;&#x7684;&#x4E24;&#x4E2A;ClientCredentialsTokenEndpointFilter&#x548C;AuthenticationManager&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x4E00;&#x4E9B;&#x524D;&#x7F6E;&#x6821;&#x9A8C;&#xFF0C;&#x548C;&#x8EAB;&#x4EFD;&#x5C01;&#x88C5;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x7C7B;&#x4E00;&#x770B;&#x540D;&#x5B57;&#x5C31;&#x77E5;&#x9053;&#x548C;&#x6211;&#x4EEC;&#x7684;token&#x662F;&#x5BC6;&#x5207;&#x76F8;&#x5173;&#x7684;&#x3002;</p>
+<pre><code>@FrameworkEndpoint
+public class TokenEndpoint extends AbstractEndpoint {
+
+    @RequestMapping(value = &quot;/oauth/token&quot;, method=RequestMethod.POST)
+    public ResponseEntity&lt;OAuth2AccessToken&gt; postAccessToken(Principal principal, @RequestParam
+    Map&lt;String, String&gt; parameters) throws HttpRequestMethodNotSupportedException {
+         ...
+        String clientId = getClientId(principal);
+        ClientDetails authenticatedClient = getClientDetailsService().loadClientByClientId(clientId);//&lt;1&gt;
+        ...
+        TokenRequest tokenRequest = getOAuth2RequestFactory().createTokenRequest(parameters, authenticatedClient);//&lt;2&gt;
+        ...
+        OAuth2AccessToken token = getTokenGranter().grant(tokenRequest.getGrantType(), tokenRequest);//&lt;3&gt;
+        ...
+        return getResponse(token);
+
+    }
+
+    private TokenGranter tokenGranter;
+}
+</code></pre><p><1> &#x52A0;&#x8F7D;&#x5BA2;&#x6237;&#x7AEF;&#x4FE1;&#x606F;</1></p>
+<p><2> &#x7ED3;&#x5408;&#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#xFF0C;&#x521B;&#x5EFA;TokenRequest</2></p>
+<p><3> &#x5C06;TokenRequest&#x4F20;&#x9012;&#x7ED9;TokenGranter&#x9881;&#x53D1;token</3></p>
+<p>&#x7701;&#x7565;&#x4E86;&#x4E00;&#x4E9B;&#x6821;&#x9A8C;&#x4EE3;&#x7801;&#x4E4B;&#x540E;&#xFF0C;&#x771F;&#x6B63;&#x7684;/oauth/token&#x7AEF;&#x70B9;&#x66B4;&#x9732;&#x5728;&#x4E86;&#x6211;&#x4EEC;&#x773C;&#x524D;&#xFF0C;&#x5176;&#x4E2D;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x4E2D;&#x7684;Principal&#x7ECF;&#x8FC7;&#x4E4B;&#x524D;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x5DF2;&#x7ECF;&#x88AB;&#x586B;&#x5145;&#x4E86;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x800C;&#x65B9;&#x6CD5;&#x7684;&#x5185;&#x90E8;&#x5219;&#x662F;&#x4F9D;&#x8D56;&#x4E86;&#x4E00;&#x4E2A;TokenGranter &#x6765;&#x9881;&#x53D1;token&#x3002;&#x5176;&#x4E2D;OAuth2AccessToken&#x7684;&#x5B9E;&#x73B0;&#x7C7B;DefaultOAuth2AccessToken&#x5C31;&#x662F;&#x6700;&#x7EC8;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x5F97;&#x5230;&#x7684;token&#x5E8F;&#x5217;&#x5316;&#x4E4B;&#x524D;&#x7684;&#x539F;&#x59CB;&#x7C7B;:</p>
+<pre><code>public class DefaultOAuth2AccessToken implements Serializable, OAuth2AccessToken {
+
+    private static final long serialVersionUID = 914967629530462926L;
+
+    private String value;
+
+    private Date expiration;
+
+    private String tokenType = BEARER_TYPE.toLowerCase();
+
+    private OAuth2RefreshToken refreshToken;
+
+    private Set&lt;String&gt; scope;
+
+    private Map&lt;String, Object&gt; additionalInformation = Collections.emptyMap();
+
+    //getter,setter
+}
+
+
+@org.codehaus.jackson.map.annotate.JsonSerialize(using = OAuth2AccessTokenJackson1Serializer.class)
+@org.codehaus.jackson.map.annotate.JsonDeserialize(using = OAuth2AccessTokenJackson1Deserializer.class)
+@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = OAuth2AccessTokenJackson2Serializer.class)
+@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = OAuth2AccessTokenJackson2Deserializer.class)
+
+public interface OAuth2AccessToken {
+
+    public static String BEARER_TYPE = &quot;Bearer&quot;;
+
+    public static String OAUTH2_TYPE = &quot;OAuth2&quot;;
+
+    /**
+     * The access token issued by the authorization server. This value is REQUIRED.
+     */
+    public static String ACCESS_TOKEN = &quot;access_token&quot;;
+
+    /**
+     * The type of the token issued as described in &lt;a
+     * href=&quot;http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-7.1&quot;&gt;Section 7.1&lt;/a&gt;. Value is case insensitive.
+     * This value is REQUIRED.
+     */
+    public static String TOKEN_TYPE = &quot;token_type&quot;;
+
+    /**
+     * The lifetime in seconds of the access token. For example, the value &quot;3600&quot; denotes that the access token will
+     * expire in one hour from the time the response was generated. This value is OPTIONAL.
+     */
+    public static String EXPIRES_IN = &quot;expires_in&quot;;
+
+    /**
+     * The refresh token which can be used to obtain new access tokens using the same authorization grant as described
+     * in &lt;a href=&quot;http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-6&quot;&gt;Section 6&lt;/a&gt;. This value is OPTIONAL.
+     */
+    public static String REFRESH_TOKEN = &quot;refresh_token&quot;;
+
+    /**
+     * The scope of the access token as described by &lt;a
+     * href=&quot;http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-3.3&quot;&gt;Section 3.3&lt;/a&gt;
+     */
+    public static String SCOPE = &quot;scope&quot;;
+
+    ...
+}
+</code></pre><p>&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x6837;&#x4F8B;token&#x54CD;&#x5E94;,&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;&#x5C31;&#x662F;&#x4E0A;&#x8FF0;&#x7C7B;&#x5E8F;&#x5217;&#x5316;&#x540E;&#x7684;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>{ 
+    &quot;access_token&quot;:&quot;950a7cc9-5a8a-42c9-a693-40e817b1a4b0&quot;, 
+    &quot;token_type&quot;:&quot;bearer&quot;, 
+    &quot;refresh_token&quot;:&quot;773a0fcd-6023-45f8-8848-e141296cb3cb&quot;, 
+    &quot;expires_in&quot;:27036, 
+    &quot;scope&quot;:&quot;select&quot; 
+}
+</code></pre><h2 id="tokengranter&#xFF08;&#x638C;&#x63E1;&#xFF09;">TokenGranter&#xFF08;&#x638C;&#x63E1;&#xFF09;</h2>
+<p>&#x5148;&#x4ECE;UML&#x7C7B;&#x56FE;&#x5BF9;TokenGranter&#x63A5;&#x53E3;&#x7684;&#x8BBE;&#x8BA1;&#x6709;&#x4E00;&#x4E2A;&#x5B8F;&#x89C2;&#x7684;&#x8BA4;&#x8BC6;</p>
+<p><img src="image/oauth2-3-2.png" alt="">
+&#x56FE;2 TokenGranter&#x76F8;&#x5173;UML&#x7C7B;&#x56FE;</p>
+<p>TokenGranter&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;&#x662F;&#x4F7F;&#x7528;CompositeTokenGranter&#x7BA1;&#x7406;&#x4E00;&#x4E2A;List&#x5217;&#x8868;&#xFF0C;&#x6BCF;&#x4E00;&#x79CD;grantType&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x771F;&#x6B63;&#x6388;&#x6743;&#x8005;&#xFF0C;&#x5728;debug&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;CompositeTokenGranter &#x5185;&#x90E8;&#x5C31;&#x662F;&#x5728;&#x5FAA;&#x73AF;&#x8C03;&#x7528;&#x4E94;&#x79CD;TokenGranter&#x5B9E;&#x73B0;&#x7C7B;&#x7684;grant&#x65B9;&#x6CD5;&#xFF0C;&#x800C;granter&#x5185;&#x90E8;&#x5219;&#x662F;&#x901A;&#x8FC7;grantType&#x6765;&#x533A;&#x5206;&#x662F;&#x5426;&#x662F;&#x5404;&#x81EA;&#x7684;&#x6388;&#x6743;&#x7C7B;&#x578B;&#x3002;</p>
+<pre><code>public class CompositeTokenGranter implements TokenGranter {
+
+    private final List&lt;TokenGranter&gt; tokenGranters;
+
+    public CompositeTokenGranter(List&lt;TokenGranter&gt; tokenGranters) {
+        this.tokenGranters = new ArrayList&lt;TokenGranter&gt;(tokenGranters);
+    }
+
+    public OAuth2AccessToken grant(String grantType, TokenRequest tokenRequest) {
+        for (TokenGranter granter : tokenGranters) {
+            OAuth2AccessToken grant = granter.grant(grantType, tokenRequest);
+            if (grant!=null) {
+                return grant;
+            }
+        }
+        return null;
+    }
+}
+</code></pre><p>&#x4E94;&#x79CD;&#x7C7B;&#x578B;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
+<ul>
+<li>ResourceOwnerPasswordTokenGranter ==&gt; password&#x5BC6;&#x7801;&#x6A21;&#x5F0F;</li>
+<li>AuthorizationCodeTokenGranter ==&gt; authorization_code&#x6388;&#x6743;&#x7801;&#x6A21;&#x5F0F;</li>
+<li>ClientCredentialsTokenGranter ==&gt; client_credentials&#x5BA2;&#x6237;&#x7AEF;&#x6A21;&#x5F0F;</li>
+<li>ImplicitTokenGranter ==&gt; implicit&#x7B80;&#x5316;&#x6A21;&#x5F0F;</li>
+<li><p>RefreshTokenGranter ==&gt;refresh_token &#x5237;&#x65B0;token&#x4E13;&#x7528;
+&#x4EE5;&#x5BA2;&#x6237;&#x7AEF;&#x6A21;&#x5F0F;&#x4E3A;&#x4F8B;&#xFF0C;&#x601D;&#x8003;&#x5982;&#x4F55;&#x4EA7;&#x751F;token&#x7684;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x7EE7;&#x7EED;&#x7814;&#x7A76;5&#x79CD;&#x6388;&#x6743;&#x8005;&#x7684;&#x62BD;&#x8C61;&#x7C7B;&#xFF1A;
+AbstractTokenGranter</p>
+<pre><code>public abstract class AbstractTokenGranter implements TokenGranter {
+
+  protected final Log logger = LogFactory.getLog(getClass());
+
+  //&#x4E0E;token&#x76F8;&#x5173;&#x7684;service&#xFF0C;&#x91CD;&#x70B9;
+  private final AuthorizationServerTokenServices tokenServices;
+  //&#x4E0E;clientDetails&#x76F8;&#x5173;&#x7684;service&#xFF0C;&#x91CD;&#x70B9;
+  private final ClientDetailsService clientDetailsService;
+  //&#x521B;&#x5EFA;oauth2Request&#x7684;&#x5DE5;&#x5382;&#xFF0C;&#x91CD;&#x70B9;
+  private final OAuth2RequestFactory requestFactory;
+
+  private final String grantType;
+  ...
+
+  public OAuth2AccessToken grant(String grantType, TokenRequest tokenRequest) {
+
+      ...
+      String clientId = tokenRequest.getClientId();
+      ClientDetails client = clientDetailsService.loadClientByClientId(clientId);
+      validateGrantType(grantType, client);
+
+      logger.debug(&quot;Getting access token for: &quot; + clientId);
+
+      return getAccessToken(client, tokenRequest);
+
+  }
+
+  protected OAuth2AccessToken getAccessToken(ClientDetails client, TokenRequest tokenRequest) {
+      return tokenServices.createAccessToken(getOAuth2Authentication(client, tokenRequest));
+  }
+
+  protected OAuth2Authentication getOAuth2Authentication(ClientDetails client, TokenRequest tokenRequest) {
+      OAuth2Request storedOAuth2Request = requestFactory.createOAuth2Request(client, tokenRequest);
+      return new OAuth2Authentication(storedOAuth2Request, null);
+  }
+
+  ...
+}
+</code></pre></li>
+</ul>
+<p>&#x56DE;&#x8FC7;&#x5934;&#x53BB;&#x770B;TokenEndpoint&#x4E2D;&#xFF0C;&#x6B63;&#x662F;&#x8C03;&#x7528;&#x4E86;&#x8FD9;&#x91CC;&#x7684;&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x7C7B;&#x53D8;&#x91CF;&#x7684;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#x3002;&#x7531;&#x4E8E;&#x7BC7;&#x5E45;&#x9650;&#x5236;&#xFF0C;&#x4E0D;&#x80FD;&#x5EF6;&#x5C55;&#x592A;&#x591A;&#xFF0C;&#x4E0D;&#x7136;&#x6CA1;&#x5B8C;&#x6CA1;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x91CD;&#x70B9;&#x5206;&#x6790;&#x4E0B;AuthorizationServerTokenServices&#x662F;&#x4F55;&#x65B9;&#x795E;&#x5723;&#x3002;</p>
+<h2 id="authorizationservertokenservices&#xFF08;&#x4E86;&#x89E3;&#xFF09;">AuthorizationServerTokenServices&#xFF08;&#x4E86;&#x89E3;&#xFF09;</h2>
+<p>AuthorizationServer&#x7AEF;&#x7684;token&#x64CD;&#x4F5C;service&#xFF0C;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>public interface AuthorizationServerTokenServices {
+    //&#x521B;&#x5EFA;token
+    OAuth2AccessToken createAccessToken(OAuth2Authentication authentication) throws AuthenticationException;
+    //&#x5237;&#x65B0;token
+    OAuth2AccessToken refreshAccessToken(String refreshToken, TokenRequest tokenRequest)
+            throws AuthenticationException;
+    //&#x83B7;&#x53D6;token
+    OAuth2AccessToken getAccessToken(OAuth2Authentication authentication);
+
+}
+</code></pre><p>&#x5728;&#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;DefaultTokenServices&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;token&#x662F;&#x5982;&#x4F55;&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x4E86;&#x89E3;&#x4E86;&#x6846;&#x67B6;&#x5BF9;token&#x8FDB;&#x884C;&#x54EA;&#x4E9B;&#x4FE1;&#x606F;&#x7684;&#x5173;&#x8054;&#x3002;</p>
+<pre><code>@Transactional
+public OAuth2AccessToken createAccessToken(OAuth2Authentication authentication) throws AuthenticationException {
+
+    OAuth2AccessToken existingAccessToken = tokenStore.getAccessToken(authentication);
+    OAuth2RefreshToken refreshToken = null;
+    if (existingAccessToken != null) {
+        if (existingAccessToken.isExpired()) {
+            if (existingAccessToken.getRefreshToken() != null) {
+                refreshToken = existingAccessToken.getRefreshToken();
+                // The token store could remove the refresh token when the
+                // access token is removed, but we want to
+                // be sure...
+                tokenStore.removeRefreshToken(refreshToken);
+            }
+            tokenStore.removeAccessToken(existingAccessToken);
+        }
+        else {
+            // Re-store the access token in case the authentication has changed
+            tokenStore.storeAccessToken(existingAccessToken, authentication);
+            return existingAccessToken;
+        }
+    }
+
+    // Only create a new refresh token if there wasn&apos;t an existing one
+    // associated with an expired access token.
+    // Clients might be holding existing refresh tokens, so we re-use it in
+    // the case that the old access token
+    // expired.
+    if (refreshToken == null) {
+        refreshToken = createRefreshToken(authentication);
+    }
+    // But the refresh token itself might need to be re-issued if it has
+    // expired.
+    else if (refreshToken instanceof ExpiringOAuth2RefreshToken) {
+        ExpiringOAuth2RefreshToken expiring = (ExpiringOAuth2RefreshToken) refreshToken;
+        if (System.currentTimeMillis() &gt; expiring.getExpiration().getTime()) {
+            refreshToken = createRefreshToken(authentication);
+        }
+    }
+
+    OAuth2AccessToken accessToken = createAccessToken(authentication, refreshToken);
+    tokenStore.storeAccessToken(accessToken, authentication);
+    // In case it was modified
+    refreshToken = accessToken.getRefreshToken();
+    if (refreshToken != null) {
+        tokenStore.storeRefreshToken(refreshToken, authentication);
+    }
+    return accessToken;
+
+}
+</code></pre><p>&#x7B80;&#x5355;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;AuthorizationServerTokenServices&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x4ED6;&#x63D0;&#x4F9B;&#x4E86;&#x521B;&#x5EFA;token&#xFF0C;&#x5237;&#x65B0;token&#xFF0C;&#x83B7;&#x53D6;token&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x5728;&#x521B;&#x5EFA;token&#x65F6;&#xFF0C;&#x4ED6;&#x4F1A;&#x8C03;&#x7528;tokenStore&#x5BF9;&#x4EA7;&#x751F;&#x7684;token&#x548C;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x5B58;&#x50A8;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;redis&#xFF0C;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5185;&#x5B58;&#xFF0C;jwt&#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x672C;&#x7BC7;&#x603B;&#x7ED3;&#x4E86;&#x4F7F;&#x7528;&#x5BA2;&#x6237;&#x7AEF;&#x6A21;&#x5F0F;&#x83B7;&#x53D6;Token&#x65F6;&#xFF0C;spring security oauth2&#x5185;&#x90E8;&#x7684;&#x8FD0;&#x4F5C;&#x6D41;&#x7A0B;&#xFF0C;&#x91CD;&#x70B9;&#x662F;&#x5728;&#x5206;&#x6790;AuthenticationServer&#x76F8;&#x5173;&#x7684;&#x7C7B;&#x3002;&#x5176;&#x4ED6;&#x6A21;&#x5F0F;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x4F46;&#x62BD;&#x8C61;&#x529F;&#x80FD;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x4F1A;&#x88AB;&#x76F8;&#x5E94;&#x5730;&#x66FF;&#x6362;&#x3002;&#x9605;&#x8BFB;spring&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x4F1A;&#x53D1;&#x73B0;&#x5B83;&#x7684;&#x8BBE;&#x8BA1;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x975E;&#x5E38;&#x591A;&#x7684;&#x62BD;&#x8C61;&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x5BF9;&#x6211;&#x4EEC;&#x7406;&#x6E05;&#x695A;&#x5185;&#x90E8;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x4EA7;&#x751F;&#x4E86;&#x4E0D;&#x5C0F;&#x7684;&#x56F0;&#x6270;&#xFF0C;&#x6211;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x53EF;&#x4EE5;&#x501F;&#x52A9;UML&#x7C7B;&#x56FE;&#xFF0C;&#x5148;&#x4ECE;&#x5B8F;&#x89C2;&#x7406;&#x6E05;&#x695A;&#x4F5C;&#x8005;&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;&#xFF0C;&#x8FD9;&#x4F1A;&#x8BA9;&#x6211;&#x4EEC;&#x7684;&#x5206;&#x6790;&#x4E8B;&#x534A;&#x529F;&#x500D;&#x3002;</p>
+<p>&#x4E0B;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x91CD;&#x70B9;&#x5206;&#x6790;&#x7528;&#x6237;&#x643A;&#x5E26;token&#x8BBF;&#x95EE;&#x53D7;&#x9650;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;spring security oauth2&#x5185;&#x90E8;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x3002;&#x5373;ResourceServer&#x76F8;&#x5173;&#x7684;&#x7C7B;&#x3002;</p>
 
                                 
                                 </section>
@@ -782,12 +1100,12 @@
 
             
                 
-                <a href="RepTaskBasic.html" class="navigation navigation-prev " aria-label="Previous page: 基础任务">
+                <a href="RepTaskBasic.html" class="navigation navigation-prev " aria-label="Previous page: Spring Security Oauth2（一）">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="handbook.html" class="navigation navigation-next " aria-label="Next page: 个人教程">
+                <a href="handbook.html" class="navigation navigation-next " aria-label="Next page: Spring Security Oauth2（三）">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -798,7 +1116,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"进阶任务","level":"1.6.3","depth":2,"next":{"title":"个人教程","level":"1.6.4","depth":2,"path":"ch4/handbook.md","ref":"ch4/handbook.md","articles":[]},"previous":{"title":"基础任务","level":"1.6.2","depth":2,"path":"ch4/RepTaskBasic.md","ref":"ch4/RepTaskBasic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch4/RepTaskAdvanced.md","mtime":"2019-07-10T02:59:13.831Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-27T14:28:10.199Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spring Security Oauth2（二）","level":"1.6.3","depth":2,"next":{"title":"Spring Security Oauth2（三）","level":"1.6.4","depth":2,"path":"ch4/handbook.md","ref":"ch4/handbook.md","articles":[]},"previous":{"title":"Spring Security Oauth2（一）","level":"1.6.2","depth":2,"path":"ch4/RepTaskBasic.md","ref":"ch4/RepTaskBasic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch4/RepTaskAdvanced.md","mtime":"2019-07-27T16:50:43.281Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-27T17:00:50.453Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
