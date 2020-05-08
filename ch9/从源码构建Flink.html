@@ -1,0 +1,1077 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>从源码构建Flink · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="将Flink导入IDE.html" />
+    
+    
+    <link rel="prev" href="Flink概述与源码研读准备.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch0/preface.html">
+            
+                <a href="../ch0/preface.html">
+            
+                    
+                    开发环境准备：IDEA常用的插件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch0/RepSearchPractice.html">
+            
+                <a href="../ch0/RepSearchPractice.html">
+            
+                    
+                    Alibaba Java Coding Guidelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch0/RepTaskBasic.html">
+            
+                <a href="../ch0/RepTaskBasic.html">
+            
+                    
+                    SonarLint
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch0/RepTaskAdvanced.html">
+            
+                <a href="../ch0/RepTaskAdvanced.html">
+            
+                    
+                    ESLint 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch0/handbook.html">
+            
+                <a href="../ch0/handbook.html">
+            
+                    
+                    Git Commit Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch0/PlantUML.html">
+            
+                <a href="../ch0/PlantUML.html">
+            
+                    
+                    PlantUML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch0/DIagram.html">
+            
+                <a href="../ch0/DIagram.html">
+            
+                    
+                    Diagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ch1/">
+            
+                <a href="../ch1/">
+            
+                    
+                    Spring Cloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ch1/RepSearchPractice.md">
+            
+                <span>
+            
+                    
+                    检索实操
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ch1/RepTaskBasic.html">
+            
+                <a href="../ch1/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ch1/RepTaskAdvanced.html">
+            
+                <a href="../ch1/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ch1/handbook.html">
+            
+                <a href="../ch1/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch2/">
+            
+                <a href="../ch2/">
+            
+                    
+                    第二讲：Linux基本命令使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch2/top.html">
+            
+                <a href="../ch2/top.html">
+            
+                    
+                    Top命令详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch2/RepTaskBasic.html">
+            
+                <a href="../ch2/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch2/RepTaskAdvanced.html">
+            
+                <a href="../ch2/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch2/handbook.html">
+            
+                <a href="../ch2/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch3/">
+            
+                <a href="../ch3/">
+            
+                    
+                    第三讲：相关工具入门
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch3/UML.html">
+            
+                <a href="../ch3/UML.html">
+            
+                    
+                    UML类图入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch3/scoop.html">
+            
+                <a href="../ch3/scoop.html">
+            
+                    
+                    SCOOP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch3/brewhome.html">
+            
+                <a href="../ch3/brewhome.html">
+            
+                    
+                    BrewHome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch3/handbook.html">
+            
+                <a href="../ch3/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch4/">
+            
+                <a href="../ch4/">
+            
+                    
+                    第四讲：Spring Security Oauth2
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch4/oauth2.html">
+            
+                <a href="../ch4/oauth2.html">
+            
+                    
+                    理解OAuth 2.0
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch4/RepTaskBasic.html">
+            
+                <a href="../ch4/RepTaskBasic.html">
+            
+                    
+                    Spring Security Oauth2（一）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch4/RepTaskAdvanced.html">
+            
+                <a href="../ch4/RepTaskAdvanced.html">
+            
+                    
+                    Spring Security Oauth2（二）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch4/handbook.html">
+            
+                <a href="../ch4/handbook.html">
+            
+                    
+                    Spring Security Oauth2（三）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch5/">
+            
+                <a href="../ch5/">
+            
+                    
+                    第五讲：中台
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch5/MiddlePlatform.html">
+            
+                <a href="../ch5/MiddlePlatform.html">
+            
+                    
+                    中台的概念与理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch5/RepTaskBasic.html">
+            
+                <a href="../ch5/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch5/RepTaskAdvanced.html">
+            
+                <a href="../ch5/RepTaskAdvanced.html">
+            
+                    
+                    进阶任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch5/handbook.html">
+            
+                <a href="../ch5/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../ch6/">
+            
+                <a href="../ch6/">
+            
+                    
+                    第六讲：单元测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ch6/junit.html">
+            
+                <a href="../ch6/junit.html">
+            
+                    
+                    mockito简单实用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ch6/RepTaskBasic.html">
+            
+                <a href="../ch6/RepTaskBasic.html">
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../ch6/AssertJ.html">
+            
+                <a href="../ch6/AssertJ.html">
+            
+                    
+                    AssertJ断言机制记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../ch6/handbook.html">
+            
+                <a href="../ch6/handbook.html">
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../ch7/README.md">
+            
+                <span>
+            
+                    
+                    第七讲：缓存
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../ch7/junit.md">
+            
+                <span>
+            
+                    
+                    mockito简单实用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../ch7/RepTaskBasic.md">
+            
+                <span>
+            
+                    
+                    基础任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../ch7/AssertJ.md">
+            
+                <span>
+            
+                    
+                    AssertJ断言机制记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../ch7/handbook.md">
+            
+                <span>
+            
+                    
+                    个人教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../ch8/">
+            
+                <a href="../ch8/">
+            
+                    
+                    辅助
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../ch8/gitbook.html">
+            
+                <a href="../ch8/gitbook.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../ch8/github.html">
+            
+                <a href="../ch8/github.html">
+            
+                    
+                    github
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="README.md">
+            
+                <span>
+            
+                    
+                    第八讲：apache Flink
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="info.html">
+            
+                <a href="info.html">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="user.html">
+            
+                <a href="user.html">
+            
+                    
+                    应用场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="Flink概述与源码研读准备.html">
+            
+                <a href="Flink概述与源码研读准备.html">
+            
+                    
+                    Flink概述与源码研读准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11.5" data-path="从源码构建Flink.html">
+            
+                <a href="从源码构建Flink.html">
+            
+                    
+                    从源码构建Flink
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="将Flink导入IDE.html">
+            
+                <a href="将Flink导入IDE.html">
+            
+                    
+                    将Flink导入IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="DataStream API.html">
+            
+                <a href="DataStream API.html">
+            
+                    
+                    DataStream API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../ps/handbooks.html">
+            
+                <a href="../ps/handbooks.html">
+            
+                    
+                    备注
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../ps/ref.html">
+            
+                <a href="../ps/ref.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../ps/thanks.html">
+            
+                <a href="../ps/thanks.html">
+            
+                    
+                    致谢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../no_end/postscript.html">
+            
+                <a href="../no_end/postscript.html">
+            
+                    
+                    后记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >从源码构建Flink</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4ECE;&#x6E90;&#x7801;&#x6784;&#x5EFA;flink">&#x4ECE;&#x6E90;&#x7801;&#x6784;&#x5EFA;Flink</h1>
+<p>&#x672C;&#x9875;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4ECE;&#x6E90;&#x4EE3;&#x7801;&#x6784;&#x5EFA;Flink 1.10.0&#x3002;</p>
+<p>[TOC]</p>
+<h2 id="&#x5EFA;&#x7ACB;&#x94FE;&#x63A5;">&#x5EFA;&#x7ACB;&#x94FE;&#x63A5;</h2>
+<p>&#x4E3A;&#x4E86;&#x6784;&#x5EFA;Flink&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x6E90;&#x4EE3;&#x7801;&#x3002;&#x65E0;&#x8BBA;&#x662F;<a href="https://flink.apache.org/downloads.html" target="_blank">&#x4E0B;&#x8F7D;&#x4E00;&#x4E2A;&#x91CA;&#x653E;&#x6E90;</a>&#x6216;<a href="https://github.com/apache/flink" target="_blank">&#x514B;&#x9686;&#x7684;Git&#x4ED3;&#x5E93;</a>&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x60A8;&#x9700;&#x8981;<strong>Maven 3</strong>&#x548C;<strong>JDK</strong>&#xFF08;Java&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x5305;&#xFF09;&#x3002;Flink <strong>&#x81F3;&#x5C11;</strong>&#x9700;&#x8981;<strong>Java 8</strong>&#x624D;&#x80FD;&#x6784;&#x5EFA;&#x3002;</p>
+<p><em>&#x6CE8;&#x610F;&#xFF1A;Maven 3.3.x&#x53EF;&#x4EE5;&#x6784;&#x5EFA;Flink&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x6B63;&#x786E;&#x5730;&#x906E;&#x76D6;&#x67D0;&#x4E9B;&#x4F9D;&#x8D56;&#x9879;&#x3002;Maven 3.2.5&#x4F1A;&#x6B63;&#x786E;&#x521B;&#x5EFA;&#x5E93;&#x3002;&#x8981;&#x6784;&#x5EFA;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;Java 8u51&#x6216;&#x66F4;&#x9AD8;&#x7248;&#x672C;&#xFF0C;&#x4EE5;&#x9632;&#x6B62;&#x4F7F;&#x7528;PowerMock&#x8FD0;&#x884C;&#x5668;&#x7684;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x3002;</em></p>
+<p>&#x8981;&#x4ECE;git&#x514B;&#x9686;&#xFF0C;&#x8BF7;&#x8F93;&#x5165;&#xFF1A;</p>
+<pre><code>git clone https://github.com/apache/flink
+</code></pre><p>&#x6784;&#x5EFA;Flink&#x7684;&#x6700;&#x7B80;&#x5355;&#x65B9;&#x6CD5;&#x662F;&#x8FD0;&#x884C;&#xFF1A;</p>
+<pre><code>mvn clean install -DskipTests
+</code></pre><p>&#x8FD9;&#x6307;&#x793A;<a href="http://maven.apache.org/" target="_blank">Maven</a>&#xFF08;<code>mvn</code>&#xFF09;&#x9996;&#x5148;&#x5220;&#x9664;&#x6240;&#x6709;&#x73B0;&#x6709;&#x7684;&#x5185;&#x90E8;&#x7248;&#x672C;&#xFF08;<code>clean</code>&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Flink&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF08;<code>install</code>&#xFF09;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x52A0;&#x5FEB;&#x6784;&#x5EFA;&#x901F;&#x5EA6;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x8DF3;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF0C;QA&#x63D2;&#x4EF6;&#x548C;JavaDocs&#xFF1A;</p>
+<pre><code>mvn clean install -DskipTests -Dfast
+</code></pre><h2 id="&#x5EFA;&#x7ACB;pyflink">&#x5EFA;&#x7ACB;PyFlink</h2>
+<p>&#x5982;&#x679C;&#x8981;&#x6784;&#x5EFA;&#x53EF;&#x7528;&#x4E8E;pip&#x5B89;&#x88C5;&#x7684;PyFlink&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5148;&#x6784;&#x5EFA;Flink jar&#xFF0C;&#x5982;<a href="https://ci.apache.org/projects/flink/flink-docs-release-1.10/flinkDev/building.html#build-flink" target="_blank">Build Flink&#x4E2D;&#x6240;&#x8FF0;</a>&#x3002;&#x7136;&#x540E;&#x8F6C;&#x5230;flink&#x6E90;&#x4EE3;&#x7801;&#x7684;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6765;&#x6784;&#x5EFA;sdist&#x5305;&#x548C;wheel&#x5305;&#xFF1A;</p>
+<pre><code>cd flink-python; python setup.py sdist bdist_wheel
+</code></pre><p><strong>&#x6CE8;&#x610F;</strong>&#x6784;&#x5EFA;PyFlink&#x9700;&#x8981;Python&#x7248;&#x672C;&#xFF08;3.5&#x3001;3.6&#x6216;3.7&#xFF09;&#x3002;</p>
+<p>sdist&#x548C;wheel&#x8F6F;&#x4EF6;&#x5305;&#x53EF;&#x4EE5;&#x5728;&#x4E0B;&#x627E;&#x5230;<code>./flink-python/dist/</code>&#x3002;&#x5B83;&#x4EEC;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;pip&#x5B89;&#x88C5;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code>python -m pip install dist/*.tar.gz
+</code></pre><h2 id="&#x4F9D;&#x8D56;&#x9634;&#x5F71;">&#x4F9D;&#x8D56;&#x9634;&#x5F71;</h2>
+<p>Flink <a href="https://maven.apache.org/plugins/maven-shade-plugin/" target="_blank">&#x906E;&#x853D;&#x4E86;</a>&#x5B83;&#x4F7F;&#x7528;&#x7684;&#x67D0;&#x4E9B;&#x5E93;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x4E0E;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5E93;&#x7684;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x53D1;&#x751F;&#x7248;&#x672C;&#x51B2;&#x7A81;&#x3002;&#x5E26;&#x6709;&#x9634;&#x5F71;&#x7684;&#x5E93;&#x5305;&#x62EC;<em>Google Guava</em>&#xFF0C;<em>Asm</em>&#xFF0C;<em>Apache Curator</em>&#xFF0C;<em>Apache HTTP Components</em>&#xFF0C;<em>Netty</em>&#x7B49;&#x3002;</p>
+<p>&#x4F9D;&#x8D56;&#x9879;&#x7740;&#x8272;&#x673A;&#x5236;&#x6700;&#x8FD1;&#x5728;Maven&#x4E2D;&#x8FDB;&#x884C;&#x4E86;&#x66F4;&#x6539;&#xFF0C;&#x5E76;&#x8981;&#x6C42;&#x7528;&#x6237;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;Maven&#x7248;&#x672C;&#x6765;&#x6784;&#x5EFA;Flink&#x7A0D;&#x6709;&#x4E0D;&#x540C;&#xFF1A;</p>
+<p><strong>Maven 3.1.x&#x548C;3.2.x</strong><code>mvn clean install -DskipTests</code>&#x5728;Flink&#x4EE3;&#x7801;&#x5E93;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E2D; &#x8C03;&#x7528;&#x5C31;&#x8DB3;&#x591F;&#x4E86;&#x3002;</p>
+<p><strong>Maven 3.3.x</strong> &#x6784;&#x5EFA;&#x5FC5;&#x987B;&#x5206;&#x4E24;&#x6B65;&#x5B8C;&#x6210;&#xFF1A;&#x9996;&#x5148;&#x5728;&#x57FA;&#x672C;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5206;&#x53D1;&#x9879;&#x76EE;&#x4E2D;&#xFF1A;</p>
+<pre><code>mvn clean install -DskipTests
+cd flink-dist
+mvn clean install
+</code></pre><p><em>&#x6CE8;&#x610F;&#xFF1A;</em>&#x8981;&#x68C0;&#x67E5;&#x60A8;&#x7684;Maven&#x7248;&#x672C;&#xFF0C;&#x8BF7;&#x8FD0;&#x884C;<code>mvn --version</code>&#x3002;</p>
+<p><a href="https://ci.apache.org/projects/flink/flink-docs-release-1.10/flinkDev/building.html#top" target="_blank"> &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<h2 id="hadoop&#x7248;&#x672C;">Hadoop&#x7248;&#x672C;</h2>
+<p>&#x8BF7;&#x53C2;&#x9605;&#x6709;&#x5173;&#x5982;&#x4F55;&#x5904;&#x7406;Hadoop&#x7C7B;&#x548C;&#x7248;&#x672C;&#x7684;<a href="https://ci.apache.org/projects/flink/flink-docs-release-1.10/ops/deployment/hadoop.html" target="_blank">Hadoop&#x96C6;&#x6210;&#x90E8;&#x5206;</a>&#x3002;</p>
+<h2 id="scala&#x7248;&#x672C;">Scala&#x7248;&#x672C;</h2>
+<p>&#x4EC5;&#x4F7F;&#x7528;Java API&#x548C;&#x5E93;&#x7684;<strong>&#x4FE1;&#x606F;</strong>&#x7528;&#x6237;&#x53EF;&#x4EE5;<em>&#x5FFD;&#x7565;</em>&#x6B64;&#x90E8;&#x5206;&#x3002;</p>
+<p>Flink&#x5177;&#x6709;&#x7528;<a href="http://scala-lang.org/" target="_blank">Scala</a>&#x7F16;&#x5199;&#x7684;API&#xFF0C;&#x5E93;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x6A21;&#x5757;&#x3002;Scala API&#x548C;&#x5E93;&#x7684;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x5FC5;&#x987B;&#x5C06;Flink&#x7684;Scala&#x7248;&#x672C;&#x4E0E;&#x5176;&#x9879;&#x76EE;&#x7684;Scala&#x7248;&#x672C;&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF08;&#x56E0;&#x4E3A;Scala&#x5E76;&#x975E;&#x4E25;&#x683C;&#x5411;&#x540E;&#x517C;&#x5BB9;&#xFF09;&#x3002;</p>
+<p>&#x4ECE;1.7&#x7248;&#x5F00;&#x59CB;&#xFF0C;Flink&#x4F7F;&#x7528;Scala 2.11&#x7248;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#x548C;2.12&#x7248;&#x8FDB;&#x884C;&#x6784;&#x5EFA;&#x3002;</p>
+<p>&#x8981;&#x9488;&#x5BF9;Scala 2.12&#x6784;&#x5EFA;FLink&#xFF0C;&#x8BF7;&#x53D1;&#x51FA;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code>mvn clean install -DskipTests -Dscala-2.12
+</code></pre><p><a href="https://ci.apache.org/projects/flink/flink-docs-release-1.10/flinkDev/building.html#top" target="_blank"> &#x56DE;&#x5230;&#x9876;&#x90E8;</a></p>
+<h2 id="&#x52A0;&#x5BC6;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;">&#x52A0;&#x5BC6;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</h2>
+<p>&#x5982;&#x679C;&#x60A8;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x5DF2;&#x52A0;&#x5BC6;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;<code>java.io.IOException: File name too long</code>&#x5F02;&#x5E38;&#x3002;&#x67D0;&#x4E9B;&#x52A0;&#x5BC6;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF08;&#x5982;Ubuntu&#x4F7F;&#x7528;&#x7684;encfs&#xFF09;&#x4E0D;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x957F;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x8FD9;&#x662F;&#x5BFC;&#x81F4;&#x6B64;&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x6DFB;&#x52A0;&#xFF1A;</p>
+<pre><code>&lt;args&gt;
+    &lt;arg&gt;-Xmax-classfile-name&lt;/arg&gt;
+    &lt;arg&gt;128&lt;/arg&gt;
+&lt;/args&gt;
+</code></pre><p>&#x5728;<code>pom.xml</code>&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x7684;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x914D;&#x7F6E;&#x4E2D;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x9519;&#x8BEF;&#x51FA;&#x73B0;&#x5728;<code>flink-yarn</code>&#x6A21;&#x5757;&#x4E2D;&#xFF0C;&#x5219;&#x5E94;&#x5C06;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x5230;&#x7684;<code>`&#x6807;&#x7B7E;&#x4E0B;</code>scala-maven-plugin`&#x3002;&#x6709;&#x5173;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;<a href="https://issues.apache.org/jira/browse/FLINK-2003" target="_blank">&#x89C1;&#x6B64;&#x95EE;&#x9898;</a>&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Flink概述与源码研读准备.html" class="navigation navigation-prev " aria-label="Previous page: Flink概述与源码研读准备">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="将Flink导入IDE.html" class="navigation navigation-next " aria-label="Next page: 将Flink导入IDE">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"从源码构建Flink","level":"1.11.5","depth":2,"next":{"title":"将Flink导入IDE","level":"1.11.6","depth":2,"path":"ch9/将Flink导入IDE.md","ref":"ch9/将Flink导入IDE.md","articles":[]},"previous":{"title":"Flink概述与源码研读准备","level":"1.11.4","depth":2,"path":"ch9/Flink概述与源码研读准备.md","ref":"ch9/Flink概述与源码研读准备.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"ch9/从源码构建Flink.md","mtime":"2020-05-08T09:44:18.209Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-08T11:03:32.576Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
