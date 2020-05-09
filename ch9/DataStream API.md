@@ -228,7 +228,7 @@ public class FraudDetector extends KeyedProcessFunction<Long, Transaction, Alert
 
 假设你的欺诈检测器所处理的交易数据如下：
 
-![Transactions](https://ci.apache.org/projects/flink/flink-docs-release-1.10/fig/fraud-transactions.svg)
+![Transactions](image\fraud-transactions.svg)
 
 交易 3 和交易 4 应该被标记为欺诈行为，因为交易 3 是一个 $0.09 的小额交易，而紧随着的交易 4 是一个 $510 的大额交易。 另外，交易 7、8 和 交易 9 就不属于欺诈交易了，因为在交易 7 这个 $0.02 的小额交易之后，并没有跟随一个大额交易，而是一个金额适中的交易，这使得交易 7 到 交易 9 不属于欺诈行为。
 

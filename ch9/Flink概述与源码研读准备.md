@@ -26,7 +26,7 @@ batch dataset可以视作streaming dataset的一种特例，所以Flink可通过
 
 **Flink自下而上的全局组成结构图：**
 
- ![img](E:\git-me\notes\ch9\image\flink1.png)
+ ![img](image\flink1.png)
 
 ## 2.2 编程模型
 
@@ -34,7 +34,7 @@ batch dataset可以视作streaming dataset的一种特例，所以Flink可通过
 
 Flink提供了不同层次的API用于streaming/batch应用的开发，如下图所示：
 
-![img](E:\git-me\notes\ch9\image\flink2.png)
+![img](image\flink2.png)
 
 - 最底层的抽象仅提供状态流（stateful streaming），它通过处理函数嵌入到DataStream API中。
 - 实践中用Core API比较多，这些流式的API提供了通用的构建入口用于数据处理，像各种用户自定义的transformation、join、aggregation、window、state等。
@@ -52,7 +52,7 @@ Flink程序的基本元素包括：
 
 Flink程序/Streaming dataflow的结构如下图所示：
 
-![img](E:\git-me\notes\ch9\image\flink3.png)
+![img](image\flink3.png)
 
 一个标准Flink程序的组成：
 
@@ -75,7 +75,7 @@ Flink程序在实际运行中是并行的、分布式的：
 
 一个dataflow的运行结构如下图所示：
 
- ![img](E:\git-me\notes\ch9\image\flink4.png)
+ ![img](image\flink4.png)
 
 流中的数据在不同operator之间的传递方式有两种：
 
@@ -94,7 +94,7 @@ window类型的典型划分：
 
 一个stream上可以同时有多个window：
 
- ![img](E:\git-me\notes\ch9\image\flink5.png)
+ ![img](image\flink5.png)
 
 **2.2.5 有状态的Operation**
 
@@ -131,7 +131,7 @@ watermark只是启发式的，如果有比watermark的event time早的element在
 - source和map分别都被拆分为两个operator subtask并各分配一个线程，其中考虑到event在source、map中的传输方式是one-to-one所以将source和map链接在同一个线程里；
 - keyBy()/window()/apply()也被拆分为两个operator subtask并各占一个线程；
 
- ![img](E:\git-me\notes\ch9\image\flink6.png)
+ ![img](image\flink6.png)
 
 **2.3.2 JobManager/TaskManager/Client**
 
@@ -149,7 +149,7 @@ Client不是Flink运行时的组成部分，被用于向JobManager发送Job（�
 
 JobManager、TaskManager和Client之间的交互如下图所示：
 
- ![img](E:\git-me\notes\ch9\image\flink7.png)
+ ![img](image\flink7.png)
 
 **2.3.3 Task槽（slot）与资源**
 
@@ -164,7 +164,7 @@ TaskManager JVM中operator subtask、thread、task slot之间的关系：
 - 一个TaskManager JVM进程会有一个或多个Task Slot（个数一般与cpu core的个数相等），每个Task Slot能分配到这个JVM中的一部分资源（内存）；
 - 一个Task Slot（中的资源）可以被一个或多个线程共享。一个线程中运行一个operator subtask或链接起来的多个operator subtask。
 
- ![img](E:\git-me\notes\ch9\image\flink8.png)
+ ![img](image\flink8.png)
 
 **2.3.4 状态存储**
 
