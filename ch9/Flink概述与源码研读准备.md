@@ -180,13 +180,13 @@ savepoint是手工触发的checkpoints，也依赖checkpointing机制，可以�
 
 Flink程序从source中读数据（如file/内存/kafka topic），在数据集上实现转换（如filtering/mapping/updating state/joining/grouping/defining windows/aggregating等），并将完成一系列转换处理后的数据写到sink中（如file/终端）。我们可以用DataStream API处理streaming数据，可以用DataSet API处理batch数据。
 
-Flink API的基本概念参考https://ci.apache.org/projects/flink/flink-docs-release-1.4/dev/api_concepts.html。
+Flink API的基本概念参考https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/api_concepts.html。
 
 **2.4.1 Flink提供的API**
 
 （1）DataStream API
 
-在data stream上实现转换，如filter、update state、define windows、aggregate。DataStream中的transformation可以将一个或多个DataStream转换为一个DataStream。API参考[https://ci.apache.org/projects/flink/flink-docs-release-1.4/dev/datastream_api.html](https://ci.apache.org/projects/flink/flink-docs-release-1.3/dev/datastream_api.html)。
+在data stream上实现转换，如filter、update state、define windows、aggregate。DataStream中的transformation可以将一个或多个DataStream转换为一个DataStream。API参考[https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/datastream_api.html](https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/datastream_api.html)。
 
 常用的转换算子包括：
 
@@ -219,7 +219,7 @@ DataSet API和DataStream API类似（大部分算子），少数特有的如下�
 - dinstinct：返回数据集中的所有不同元素；
 - 其它；
 
-API参考[https://ci.apache.org/projects/flink/flink-docs-release-1.4/dev/batch/index.html](https://ci.apache.org/projects/flink/flink-docs-release-1.3/dev/batch/index.html)。
+API参考[https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/batch/index.html](https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/batch/index.html)。
 
 （3）Table API & SQL
 
@@ -229,7 +229,7 @@ Flink的SQL支持是基于Apache Calcite实现的，其中Apache Calcite实现�
 
 Flink的Table API和SQL尚未完全实现，并非所有的功能都能支持，还在开发中。
 
-API参考[https://ci.apache.org/projects/flink/flink-docs-release-1.4/dev/table/index.html](https://ci.apache.org/projects/flink/flink-docs-release-1.3/dev/table/index.html)。
+API参考[https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/table/index.html](https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/table/index.html)。
 
  
 
@@ -249,23 +249,23 @@ Flink包含了一个metric系统，可采集用户范围/系统范围的监控�
 
 开发者可以在用户函数中访问metric系统，自定义并统计metric。
 
-详情可参考https://ci.apache.org/projects/flink/flink-docs-release-1.4/monitoring/metrics.html。
+详情可参考https://ci.apache.org/projects/flink/flink-docs-release-1.10/monitoring/metrics.html。
 
 **2.5.2 Checkpoint监控**
 
-Flink提供了dashboard用于监控Job的checkpoint。即使Job完成运行，对应的checkpoint统计数据仍然是可以查询的。详情可以参考https://ci.apache.org/projects/flink/flink-docs-release-1.4/monitoring/checkpoint_monitoring.html。
+Flink提供了dashboard用于监控Job的checkpoint。即使Job完成运行，对应的checkpoint统计数据仍然是可以查询的。详情可以参考https://ci.apache.org/projects/flink/flink-docs-release-1.10/monitoring/checkpoint_monitoring.html。
 
 **2.5.3 Back Pressure监控**
 
 如果你看到一个task的背压（back pressure）告警，这表示这个task产生数据的速度超过了下游operator的消费速度。数据在job flow中是按照从source到sink的方向流动的，而背压是沿着相反的方向传播。
 
-详情可以参考https://ci.apache.org/projects/flink/flink-docs-release-1.4/monitoring/back_pressure.html。
+详情可以参考https://ci.apache.org/projects/flink/flink-docs-release-1.10/monitoring/back_pressure.html。
 
 **2.5.4 监控REST API**
 
 Flink基于Netty提供了一组监控API用于查询正在运行/最近完成的Job的状态和统计数据，这些API用于输出监控数据给Flink自身的Dashboard，但是也可以用于开发定制化的监控工具。
 
-详情可以参考https://ci.apache.org/projects/flink/flink-docs-release-1.4/monitoring/rest_api.html。
+详情可以参考https://ci.apache.org/projects/flink/flink-docs-release-1.10/monitoring/rest_api.html。
 
 # 三、Job开发
 
@@ -283,15 +283,15 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.flink -DarchetypeArtifactId
 
 参考：
 
-[1] https://ci.apache.org/projects/flink/flink-docs-release-1.4/quickstart/java_api_quickstart.html
+[1] https://ci.apache.org/projects/flink/flink-docs-release-1.10/quickstart/java_api_quickstart.html
 
-[2] https://ci.apache.org/projects/flink/flink-docs-release-1.4/start/dependencies.html
+[2] https://ci.apache.org/projects/flink/flink-docs-release-1.10/start/dependencies.html
 
 **2、Job开发与打包**
 
 使用一个趁手的IDE（如IDEA），将上述项目导入到IDE中即可开始编码。Flink在其源码中提供了一个maven分包flink-examples，内含批处理job和流处理job示例，可参考编写。
 
-Flink Job开发的一些tips：https://ci.apache.org/projects/flink/flink-docs-release-1.4/dev/best_practices.html
+Flink Job开发的一些tips：https://ci.apache.org/projects/flink/flink-docs-release-1.10/dev/best_practices.html
 
 完成开发后执行mvn clean package即可编译打包，你的job以及依赖的flink connector、library（如CEP/SQL/ML等）会被集成到jar包中，而flink core相关的jar包不会被放进去。
 
